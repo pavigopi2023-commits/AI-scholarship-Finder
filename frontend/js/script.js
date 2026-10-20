@@ -8,7 +8,7 @@
    ===================================================== */
 
 /* ---------- 1. BACKEND CONNECTION SETTINGS ---------- */
-const API_BASE_URL = "https://ai-scholarship-finder-6omk.onrender.com/api";
+const API_BASE_URL = "https://ai-scholarship-finder-6omk.onrender.com";
 
 /* ---------- 2. GLOBAL DASHBOARD & ADMIN STATE ---------- */
 let currentStudent = null;
@@ -403,7 +403,7 @@ async function fetchRecommendationsFromBackend(student) {
 function showConnectionError(error) {
   if (error.message === "SERVER_UNREACHABLE") {
     resultsMessage.textContent =
-      "We couldn't connect to the scholarship AI recommendation service. Please make sure the Flask backend is running on http://127.0.0.1:5000.";
+      "We couldn't connect to the scholarship AI recommendation service. Please make sure the Flask backend is running on https://ai-scholarship-finder-6omk.onrender.com/";
   } else {
     resultsMessage.textContent = error.message || "Something went wrong. Please try again.";
   }
