@@ -554,6 +554,8 @@ def admin_delete_scholarship(scholarship_id):
     except sqlite3.Error as err:
         return jsonify({"success": False, "message": "Database error: " + str(err)}), 500
 
+# Initialize the database for both local and Render deployment
+init_db()
+
 if __name__ == "__main__":
-    init_db()
     app.run(debug=True)
