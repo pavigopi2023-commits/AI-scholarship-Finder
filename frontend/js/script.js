@@ -8,7 +8,7 @@
    ===================================================== */
 
 /* ---------- 1. BACKEND CONNECTION SETTINGS ---------- */
-const API_BASE_URL = "http://127.0.0.1:5000";
+const API_BASE_URL = "https://ai-scholarship-finder-6omk.onrender.com/api";
 
 /* ---------- 2. GLOBAL DASHBOARD & ADMIN STATE ---------- */
 let currentStudent = null;
