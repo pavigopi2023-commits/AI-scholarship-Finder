@@ -1,0 +1,31 @@
+# Python / Flask
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.env
+venv/
+env/
+ENV/
+
+# Database
+*.db-journal
+
+# IDE / OS
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Local databases and exports
+*.db
+*.sqlite
+*.sqlite3
+*.sql
+
+# Secrets and Python cache
+.env
+.env.*
+__pycache__/
+*.pyc
+.venv/
+venv/

@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Scholarship Finder — Profile-Based Matching Platform</title>
+  <meta name="description" content="Discover scholarships tailored to your academic profile, family income, state, and background using a transparent rule-based eligibility engine." />
+
+  <!-- Google Fonts: Sora for headings, Inter for body text -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Our stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ============ NAVIGATION BAR ============ -->
+  <header class="navbar" id="top">
+    <div class="container navbar__inner">
+      <a href="#home" class="navbar__logo" aria-label="AI Scholarship Finder Home">
+        <span class="navbar__logo-icon">🎓</span>
+        <span class="navbar__logo-text">AI Scholarship Finder</span>
+        <span class="navbar__logo-badge">Prototype</span>
+      </a>
+      <nav class="navbar__links" aria-label="Main Navigation">
+        <a href="#home" class="navbar__link">Home</a>
+        <a href="#studentForm" class="navbar__link">Find Scholarships</a>
+        <a href="#how-it-works" class="navbar__link">How It Works</a>
+        <a href="#about" class="navbar__link">About</a>
+        <a href="#adminSection" id="toggleAdminBtn" class="navbar__link" style="color: #6366f1; font-weight: 600;">🔒 Admin Panel</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ HERO SECTION ============ -->
+    <section id="home" class="hero">
+      <div class="container hero__inner">
+        <div class="hero__text">
+          <div class="hero__eyebrow-wrapper">
+            <span class="hero__eyebrow">
+              <span class="hero__eyebrow-dot"></span>
+              Rule-Based Matching Engine
+            </span>
+          </div>
+          <h1 class="hero__heading">Find Scholarships That Match Your Future</h1>
+          <p class="hero__description">
+            Discover scholarship opportunities tailored specifically to your academic standing, family income, location, and category background. Fill out your details once to receive scored fit recommendations.
+          </p>
+          <div class="hero__actions">
+            <a href="#studentForm" class="btn btn--primary hero__cta">
+              Find My Scholarships
+              <svg class="btn__icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+            </a>
+            <a href="#how-it-works" class="btn btn--secondary hero__cta-secondary">
+              How It Works
+            </a>
+          </div>
+        </div>
+
+        <!-- Interactive CSS Visual Demonstration -->
+        <div class="hero__visual" aria-hidden="true">
+          <div class="hero__glow-bg"></div>
+          <div class="hero__card hero__card--back"></div>
+          <div class="hero__card hero__card--mid"></div>
+          <div class="hero__card hero__card--front">
+            <div class="hero__card-header">
+              <div class="hero__card-cap">🎓</div>
+              <div class="hero__card-meta">
+                <span class="hero__card-title">National Merit Scholarship</span>
+                <span class="hero__card-sub">Verified Eligibility Rules</span>
+              </div>
+            </div>
+            <div class="hero__card-body">
+              <div class="hero__bar hero__bar--1"></div>
+              <div class="hero__bar hero__bar--2"></div>
+              <div class="hero__tags">
+                <span class="hero__tag hero__tag--pass">✓ Marks &ge; 80%</span>
+                <span class="hero__tag hero__tag--pass">✓ Income Limit</span>
+                <span class="hero__tag hero__tag--pass">✓ Category Match</span>
+              </div>
+            </div>
+            <div class="hero__score-badge">
+              <span class="hero__score-icon">⭐</span>
+              <span class="hero__score-text">95% Match</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TRUST / VALUE SECTION ============ -->
+    <section id="trust-value" class="trust-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Built for Transparent &amp; Smart Scholarship Matching</h2>
+          <p class="section-subtitle">
+            Our platform evaluates your profile against eligibility criteria to show you relevant funding opportunities.
+          </p>
+        </div>
+
+        <div class="trust-grid">
+          <div class="trust-card">
+            <div class="trust-card__icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            </div>
+            <h3 class="trust-card__title">Personalized Matching</h3>
+            <p class="trust-card__desc">
+              Scholarships are scored and ranked according to your specific academic achievement, state, category, and income level.
+            </p>
+          </div>
+
+          <div class="trust-card">
+            <div class="trust-card__icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            </div>
+            <h3 class="trust-card__title">Smart Eligibility</h3>
+            <p class="trust-card__desc">
+              The engine evaluates requirements line by line so you can see exactly why a scholarship fits your profile.
+            </p>
+          </div>
+
+          <div class="trust-card">
+            <div class="trust-card__icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            </div>
+            <h3 class="trust-card__title">Easy Discovery</h3>
+            <p class="trust-card__desc">
+              Find suitable scholarship opportunities consolidated in one accessible dashboard without searching dozens of websites.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HOW IT WORKS SECTION ============ -->
+    <section id="how-it-works" class="how-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Simple Step-by-Step Process</span>
+          <h2 class="section-title">How It Works</h2>
+          <p class="section-subtitle">
+            Get your matched scholarships in 4 simple steps with instant criteria scoring.
+          </p>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-card__number">01</div>
+            <h3 class="step-card__title">Create Your Profile</h3>
+            <p class="step-card__desc">Start by accessing the student form with your basic details.</p>
+          </div>
+
+          <div class="step-card__connector" aria-hidden="true">→</div>
+
+          <div class="step-card">
+            <div class="step-card__number">02</div>
+            <h3 class="step-card__title">Enter Academic &amp; Personal Details</h3>
+            <p class="step-card__desc">Provide your education level, marks, family income, state, and category.</p>
+          </div>
+
+          <div class="step-card__connector" aria-hidden="true">→</div>
+
+          <div class="step-card">
+            <div class="step-card__number">03</div>
+            <h3 class="step-card__title">Get Matched Scholarships</h3>
+            <p class="step-card__desc">Our rule-based engine scores every scholarship out of 100 and ranks the best fits.</p>
+          </div>
+
+          <div class="step-card__connector" aria-hidden="true">→</div>
+
+          <div class="step-card">
+            <div class="step-card__number">04</div>
+            <h3 class="step-card__title">Explore &amp; Apply</h3>
+            <p class="step-card__desc">Review transparent breakdown explanations and apply to matching programs.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROJECT PURPOSE / PROBLEM & SOLUTION ============ -->
+    <section id="project-purpose" class="purpose-section">
+      <div class="container">
+        <div class="purpose-card">
+          <div class="purpose-grid">
+            <div class="purpose-column">
+              <span class="purpose-tag purpose-tag--problem">The Problem</span>
+              <h2 class="purpose-title">Why Students Miss Scholarship Opportunities</h2>
+              <ul class="purpose-list">
+                <li>
+                  <span class="purpose-icon">⚠️</span>
+                  <span>Students often don't know which relevant scholarships are available.</span>
+                </li>
+                <li>
+                  <span class="purpose-icon">⚠️</span>
+                  <span>Complex eligibility criteria and financial income limits can be confusing.</span>
+                </li>
+                <li>
+                  <span class="purpose-icon">⚠️</span>
+                  <span>Searching through scattered government and private portals takes significant time.</span>
+                </li>
+                <li>
+                  <span class="purpose-icon">⚠️</span>
+                  <span>Students struggle to determine which opportunities provide the best fit for their profile.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="purpose-divider" aria-hidden="true"></div>
+
+            <div class="purpose-column">
+              <span class="purpose-tag purpose-tag--solution">Our Solution</span>
+              <h2 class="purpose-title">Simplifying Discovery Through Smart Rules</h2>
+              <p class="purpose-desc">
+                AI Scholarship Finder brings clarity to financial aid discovery. By evaluating your academic metrics and personal background against structured eligibility criteria, the platform provides instant fit scores and clear explanations—helping you focus on scholarships you actually qualify for.
+              </p>
+              <div class="purpose-action">
+                <a href="#studentForm" class="btn btn--primary">
+                  Start Finding Scholarships Now
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT SECTION ============ -->
+    <section id="about" class="about">
+      <div class="container">
+        <div class="about-card">
+          <h2 class="section-title">About This Project</h2>
+          <p class="section-subtitle">
+            AI Scholarship Finder is a college project demonstrating a
+            <strong>Rule-Based Scholarship Eligibility &amp; Matching Engine</strong>.
+            It compares your profile (education level, marks, income, state,
+            category) against sample scholarship requirements, scores
+            the fit out of 100, and explains which criteria matched.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ STUDENT DETAILS FORM SECTION ============ -->
+    <section id="studentForm" class="form-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Student Profile</span>
+          <h2 class="section-title">Tell Us About Yourself</h2>
+          <p class="section-subtitle">
+            Tell us about yourself so we can find scholarships that match your profile.
+          </p>
+        </div>
+
+        <form id="scholarshipForm" class="student-form" novalidate>
+          <!-- Subtle Form Progress Header -->
+          <div class="form-progress">
+            <div class="form-progress__step form-progress__step--active">
+              <span class="form-progress__num">1</span>
+              <span class="form-progress__label">Personal</span>
+            </div>
+            <div class="form-progress__line"></div>
+            <div class="form-progress__step form-progress__step--active">
+              <span class="form-progress__num">2</span>
+              <span class="form-progress__label">Academic</span>
+            </div>
+            <div class="form-progress__line"></div>
+            <div class="form-progress__step form-progress__step--active">
+              <span class="form-progress__num">3</span>
+              <span class="form-progress__label">Financial</span>
+            </div>
+            <div class="form-progress__line"></div>
+            <div class="form-progress__step form-progress__step--active">
+              <span class="form-progress__num">4</span>
+              <span class="form-progress__label">Eligibility</span>
+            </div>
+          </div>
+
+          <!-- GROUP 1: PERSONAL INFORMATION -->
+          <fieldset class="form-group-section">
+            <legend class="form-group-section__title">
+              <span class="form-group-section__icon">👤</span> Personal Information
+            </legend>
+            <div class="form-grid form-grid--2col">
+              <!-- Full Name -->
+              <div class="form-group">
+                <label for="fullName">Full Name <span class="required-star">*</span></label>
+                <input type="text" id="fullName" name="fullName" placeholder="e.g. Priya Sharma" required />
+                <span class="error-message" id="error-fullName"></span>
+              </div>
+
+              <!-- Age (Optional) -->
+              <div class="form-group">
+                <label for="age">Age (Optional)</label>
+                <input type="number" id="age" name="age" placeholder="Enter your age (e.g. 20)" min="1" max="100" />
+                <small class="form-help-text" style="display: block; font-size: 0.78rem; color: #64748b; margin-top: 4px;">
+                  ℹ️ Age is considered only when a scholarship has an age requirement.
+                </small>
+                <span class="error-message" id="error-age"></span>
+              </div>
+
+              <!-- Gender -->
+              <div class="form-group">
+                <label for="gender">Gender <span class="required-star">*</span></label>
+                <select id="gender" name="gender" required>
+                  <option value="" disabled selected>Select Gender</option>
+                  <option value="Female">Female</option>
+                  <option value="Male">Male</option>
+                  <option value="Other">Other</option>
+                  <option value="Prefer not to say">Prefer not to say</option>
+                </select>
+                <span class="error-message" id="error-gender"></span>
+              </div>
+
+              <!-- State -->
+              <div class="form-group">
+                <label for="state">State / Domicile <span class="required-star">*</span></label>
+                <select id="state" name="state" required>
+                  <option value="" disabled selected>Select State</option>
+                  <option value="Andhra Pradesh">Andhra Pradesh</option>
+                  <option value="Delhi">Delhi</option>
+                  <option value="Gujarat">Gujarat</option>
+                  <option value="Karnataka">Karnataka</option>
+                  <option value="Kerala">Kerala</option>
+                  <option value="Maharashtra">Maharashtra</option>
+                  <option value="Punjab">Punjab</option>
+                  <option value="Rajasthan">Rajasthan</option>
+                  <option value="Tamil Nadu">Tamil Nadu</option>
+                  <option value="Telangana">Telangana</option>
+                  <option value="Uttar Pradesh">Uttar Pradesh</option>
+                  <option value="West Bengal">West Bengal</option>
+                  <option value="Other">Other Indian State / UT</option>
+                </select>
+                <span class="error-message" id="error-state"></span>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- GROUP 2: ACADEMIC INFORMATION -->
+          <fieldset class="form-group-section">
+            <legend class="form-group-section__title">
+              <span class="form-group-section__icon">🎓</span> Academic Information
+            </legend>
+            <div class="form-grid form-grid--2col">
+              <!-- Education Level -->
+              <div class="form-group">
+                <label for="educationLevel">Education Level <span class="required-star">*</span></label>
+                <select id="educationLevel" name="educationLevel" required>
+                  <option value="" disabled selected>Select Education Level</option>
+                  <option value="School">School</option>
+                  <option value="Undergraduate">Undergraduate</option>
+                  <option value="Postgraduate">Postgraduate</option>
+                  <option value="Diploma">Diploma</option>
+                  <option value="PhD">PhD</option>
+                  <option value="Other">Other</option>
+                </select>
+                <span class="error-message" id="error-educationLevel"></span>
+              </div>
+
+              <!-- Course / Field of Study -->
+              <div class="form-group">
+                <label for="course">Course / Field of Study <span class="required-star">*</span></label>
+                <select id="course" name="course" required>
+                  <option value="" disabled selected>Select Course / Field of Study</option>
+                  <option value="Computer Science Engineering">Computer Science Engineering</option>
+                  <option value="Information Technology">Information Technology</option>
+                  <option value="Electronics and Communication Engineering">Electronics and Communication Engineering</option>
+                  <option value="Electrical Engineering">Electrical Engineering</option>
+                  <option value="Mechanical Engineering">Mechanical Engineering</option>
+                  <option value="Civil Engineering">Civil Engineering</option>
+                  <option value="Arts & Humanities">Arts &amp; Humanities</option>
+                  <option value="Commerce & Management">Commerce &amp; Management</option>
+                  <option value="Medicine & Healthcare">Medicine &amp; Healthcare</option>
+                  <option value="Sciences">Sciences</option>
+                  <option value="Other">Other</option>
+                </select>
+                <span class="error-message" id="error-course"></span>
+              </div>
+
+              <!-- Academic Score Type -->
+              <div class="form-group">
+                <label for="academicScoreType">Academic Score System <span class="required-star">*</span></label>
+                <select id="academicScoreType" name="academicScoreType" required>
+                  <option value="Percentage" selected>Percentage (%)</option>
+                  <option value="CGPA">CGPA (e.g. out of 10.0)</option>
+                  <option value="Marks">Obtained / Maximum Marks</option>
+                </select>
+                <span class="error-message" id="error-academicScoreType"></span>
+              </div>
+
+              <!-- Dynamic Input Block 1: Percentage -->
+              <div class="form-group" id="percentageBlock">
+                <label for="marks">Academic Percentage (%) <span class="required-star">*</span></label>
+                <input type="number" id="marks" name="marks" placeholder="Enter percentage (0–100)" min="0" max="100" step="0.01" />
+                <span class="error-message" id="error-marks"></span>
+              </div>
+
+              <!-- Dynamic Input Block 2: CGPA -->
+              <div class="form-group" id="cgpaBlock" style="display: none;">
+                <label for="cgpa">CGPA Score (0–10.0) <span class="required-star">*</span></label>
+                <input type="number" id="cgpa" name="cgpa" placeholder="Enter CGPA score (e.g. 8.5)" min="0" max="10" step="0.01" />
+                <small class="form-help-text" style="display: block; font-size: 0.78rem; color: #64748b; margin-top: 4px;">
+                  ℹ️ CGPA is evaluated against CGPA scholarship criteria without arbitrary percentage conversion.
+                </small>
+                <span class="error-message" id="error-cgpa"></span>
+              </div>
+
+              <!-- Dynamic Input Block 3: Marks (Obtained & Maximum) -->
+              <div class="form-group form-group--full" id="marksBlock" style="display: none; grid-column: 1 / -1;">
+                <div class="form-grid form-grid--2col">
+                  <div class="form-group">
+                    <label for="obtainedMarks">Obtained Marks <span class="required-star">*</span></label>
+                    <input type="number" id="obtainedMarks" name="obtainedMarks" placeholder="e.g. 450" min="0" step="1" />
+                    <span class="error-message" id="error-obtainedMarks"></span>
+                  </div>
+                  <div class="form-group">
+                    <label for="maxMarks">Maximum Marks <span class="required-star">*</span></label>
+                    <input type="number" id="maxMarks" name="maxMarks" placeholder="e.g. 500" min="1" step="1" />
+                    <span class="error-message" id="error-maxMarks"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- GROUP 3: FINANCIAL INFORMATION -->
+          <fieldset class="form-group-section">
+            <legend class="form-group-section__title">
+              <span class="form-group-section__icon">💰</span> Financial Information
+            </legend>
+            <div class="form-grid">
+              <!-- Family Income -->
+              <div class="form-group">
+                <label for="income">Annual Family Income (₹) <span class="required-star">*</span></label>
+                <input type="number" id="income" name="income" placeholder="Enter annual family income (e.g. 250000)" min="0" step="1" required />
+                <span class="error-message" id="error-income"></span>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- GROUP 4: ELIGIBILITY INFORMATION -->
+          <fieldset class="form-group-section">
+            <legend class="form-group-section__title">
+              <span class="form-group-section__icon">📋</span> Eligibility Information
+            </legend>
+            <div class="form-grid">
+              <!-- Category -->
+              <div class="form-group">
+                <label for="category">Category <span class="required-star">*</span></label>
+                <select id="category" name="category" required>
+                  <option value="" disabled selected>Select Category</option>
+                  <option value="General">General</option>
+                  <option value="OBC">OBC</option>
+                  <option value="SC">SC</option>
+                  <option value="ST">ST</option>
+                  <option value="EWS">EWS</option>
+                  <option value="Other">Other</option>
+                </select>
+                <span class="error-message" id="error-category"></span>
+              </div>
+            </div>
+          </fieldset>
+
+          <div class="form-actions">
+            <button type="submit" class="btn-submit">
+              Find My Scholarships &rarr;
+            </button>
+            <p class="form-privacy-note">
+              🔒 Your information is used to personalize scholarship recommendations.
+            </p>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- ============ SCHOLARSHIP RESULTS DASHBOARD ============ -->
+    <section id="scholarships" class="results-section">
+      <div class="container">
+        <!-- Results Header & Student Profile Summary -->
+        <div class="results-header">
+          <div class="section-header">
+            <span class="section-tag">Matched Results</span>
+            <h2 class="section-title">Scholarships Matched For You</h2>
+            <p class="section-subtitle">
+              Based on the information in your student profile. (<strong id="resultsCount">0</strong> scholarships found)
+            </p>
+          </div>
+
+          <!-- Compact Profile Summary Bar -->
+          <div id="profileSummaryBar" class="profile-summary-bar" style="display: none;">
+            <span class="profile-summary-title">Your Profile:</span>
+            <div id="profileSummaryChips" class="profile-summary-chips"></div>
+          </div>
+        </div>
+
+        <!-- Dashboard Controls Bar: Search, Filters & Sorting -->
+        <div id="resultsControls" class="results-controls" style="display: none;">
+          <!-- Search Box -->
+          <div class="controls-search">
+            <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input type="text" id="searchBox" placeholder="Search scholarships by name, provider, course, state, category..." />
+          </div>
+
+          <!-- Filters Row -->
+          <div class="controls-filters">
+            <!-- Filter State -->
+            <select id="filterState" class="filter-select">
+              <option value="all">All States</option>
+              <option value="Tamil Nadu">Tamil Nadu</option>
+              <option value="All">National / All States</option>
+            </select>
+
+            <!-- Filter Category -->
+            <select id="filterCategory" class="filter-select">
+              <option value="all">All Categories</option>
+              <option value="General">General</option>
+              <option value="OBC">OBC</option>
+              <option value="SC">SC</option>
+              <option value="ST">ST</option>
+              <option value="EWS">EWS</option>
+              <option value="All">All/Any Category</option>
+            </select>
+
+            <!-- Filter Education Level -->
+            <select id="filterEducation" class="filter-select">
+              <option value="all">All Education Levels</option>
+              <option value="School">School</option>
+              <option value="Undergraduate">Undergraduate</option>
+              <option value="Postgraduate">Postgraduate</option>
+              <option value="Diploma">Diploma</option>
+              <option value="PhD">PhD</option>
+            </select>
+
+            <!-- Filter Eligibility Status -->
+            <select id="filterEligibility" class="filter-select">
+              <option value="all">All Eligibility Statuses</option>
+              <option value="eligible">Eligible Only (Match ≥ 75%)</option>
+              <option value="partial">Partial Fit (Match &lt; 75%)</option>
+            </select>
+
+            <!-- Sort By -->
+            <select id="sortBy" class="filter-select filter-select--sort">
+              <option value="match">Sort by: Best Match</option>
+              <option value="amount">Sort by: Highest Amount</option>
+              <option value="deadline">Sort by: Nearest Deadline</option>
+            </select>
+
+            <button id="resetFiltersBtn" class="btn btn--secondary btn--sm">Reset Filters</button>
+          </div>
+        </div>
+
+        <div id="resultsMessage" class="results-message"></div>
+        
+        <!-- Results Grid -->
+        <div id="resultsGrid" class="results-grid"></div>
+
+        <!-- Empty State Container -->
+        <div id="resultsEmpty" class="results-empty-card" style="display: none;">
+          <div class="results-empty-icon">🔍</div>
+          <h3 class="results-empty-title">No matching scholarships found</h3>
+          <p class="results-empty-desc">
+            Try adjusting your search terms, clearing active filters, or updating your student profile details.
+          </p>
+          <a href="#studentForm" class="btn btn--primary">Edit My Profile</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ADMIN SCHOLARSHIP MANAGEMENT SUBSYSTEM ============ -->
+    <section id="adminSection" class="admin-section" style="display: none; padding: 60px 0; background: #f8fafc; border-top: 2px solid #e2e8f0;">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Admin Management</span>
+          <h2 class="section-title">Scholarship Database Admin Module</h2>
+          <p class="section-subtitle">
+            Manage scholarship listings, eligibility criteria, and deadlines. Authorized access only.
+          </p>
+        </div>
+
+        <!-- Admin Auth Banner -->
+        <div id="adminAuthBox" class="admin-auth-box" style="background: #ffffff; padding: 24px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); max-width: 500px; margin: 0 auto 30px auto; text-align: center;">
+          <h3 style="margin-bottom: 12px; font-size: 1.1rem; color: #1e293b;">🔒 Admin Authorization Required</h3>
+          <p style="font-size: 0.88rem; color: #64748b; margin-bottom: 16px;">Enter your Admin Secret Key to access management operations.</p>
+          <div style="display: flex; gap: 10px; justify-content: center;">
+            <input type="password" id="adminKeyInput" placeholder="Enter Admin Secret Key" style="padding: 10px 14px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 0.9rem; flex: 1; max-width: 280px;" value="admin123" />
+            <button id="adminLoginBtn" class="btn btn--primary" style="padding: 10px 18px;">Unlock Portal</button>
+          </div>
+          <p id="adminAuthError" style="color: #ef4444; font-size: 0.85rem; margin-top: 10px; display: none;"></p>
+        </div>
+
+        <!-- Admin Controls & Scholarship List -->
+        <div id="adminDashboard" style="display: none;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+            <h3 style="font-size: 1.25rem; font-weight: 700; color: #0f172a;">Database Scholarship Listings</h3>
+            <button id="addNewScholarshipBtn" class="btn btn--primary" style="padding: 10px 20px; font-size: 0.9rem;">+ Add New Scholarship</button>
+          </div>
+
+          <div id="adminMessage" class="results-message" style="margin-bottom: 15px;"></div>
+
+          <div style="background: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border: 1px solid #e2e8f0;">
+            <div style="overflow-x: auto;">
+              <table style="width: 100%; border-collapse: collapse; font-size: 0.88rem; text-align: left;">
+                <thead style="background: #f1f5f9; color: #475569; font-weight: 600; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.05em;">
+                  <tr>
+                    <th style="padding: 14px 16px;">ID</th>
+                    <th style="padding: 14px 16px;">Scholarship Name</th>
+                    <th style="padding: 14px 16px;">Provider</th>
+                    <th style="padding: 14px 16px;">Amount</th>
+                    <th style="padding: 14px 16px;">Requirement</th>
+                    <th style="padding: 14px 16px;">Income Ceiling</th>
+                    <th style="padding: 14px 16px;">State</th>
+                    <th style="padding: 14px 16px;">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="adminTableBody">
+                  <!-- Dynamic Admin Rows -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Add / Edit Scholarship Modal -->
+        <div id="scholarshipModal" style="display: none; position: fixed; inset: 0; background: rgba(15,23,42,0.6); z-index: 9999; align-items: center; justify-content: center; padding: 20px;">
+          <div style="background: #ffffff; border-radius: 16px; width: 100%; max-width: 650px; max-height: 90vh; overflow-y: auto; padding: 28px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.2);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid #e2e8f0; padding-bottom: 12px;">
+              <h3 id="modalTitle" style="font-size: 1.2rem; font-weight: 700; color: #0f172a;">Add New Scholarship</h3>
+              <button id="closeModalBtn" style="background: none; border: none; font-size: 1.5rem; cursor: pointer; color: #64748b;">&times;</button>
+            </div>
+
+            <form id="adminScholarshipForm">
+              <input type="hidden" id="adminSchId" />
+              <div class="form-grid form-grid--2col" style="gap: 14px;">
+                <div class="form-group" style="grid-column: 1 / -1;">
+                  <label>Scholarship Name *</label>
+                  <input type="text" id="adminSchName" required placeholder="e.g. National Merit Scholarship" />
+                </div>
+                <div class="form-group" style="grid-column: 1 / -1;">
+                  <label>Provider Organization *</label>
+                  <input type="text" id="adminSchProvider" required placeholder="e.g. Ministry of Education" />
+                </div>
+                <div class="form-group" style="grid-column: 1 / -1;">
+                  <label>Description</label>
+                  <textarea id="adminSchDesc" rows="2" placeholder="Brief summary of scholarship benefits..." style="width: 100%; padding: 10px; border: 1px solid #cbd5e1; border-radius: 6px;"></textarea>
+                </div>
+                <div class="form-group">
+                  <label>Award Amount (₹)</label>
+                  <input type="number" id="adminSchAmount" placeholder="e.g. 50000" />
+                </div>
+                <div class="form-group">
+                  <label>Income Limit (₹)</label>
+                  <input type="number" id="adminSchIncome" placeholder="e.g. 500000 (0 for no limit)" />
+                </div>
+                <div class="form-group">
+                  <label>Academic Requirement Type</label>
+                  <select id="adminSchScoreType">
+                    <option value="Percentage">Percentage (%)</option>
+                    <option value="CGPA">CGPA</option>
+                    <option value="Marks">Marks</option>
+                    <option value="None">None / Open</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Minimum Academic Score</label>
+                  <input type="number" id="adminSchMinScore" step="0.01" placeholder="e.g. 75 or 7.5" />
+                </div>
+                <div class="form-group">
+                  <label>Education Level</label>
+                  <select id="adminSchEducation">
+                    <option value="Undergraduate">Undergraduate</option>
+                    <option value="Postgraduate">Postgraduate</option>
+                    <option value="School">School</option>
+                    <option value="Diploma">Diploma</option>
+                    <option value="PhD">PhD</option>
+                    <option value="All">All Levels</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>State Domicile</label>
+                  <select id="adminSchState">
+                    <option value="All">All States / National</option>
+                    <option value="Tamil Nadu">Tamil Nadu</option>
+                    <option value="Maharashtra">Maharashtra</option>
+                    <option value="Delhi">Delhi</option>
+                    <option value="Karnataka">Karnataka</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Category Reservation</label>
+                  <select id="adminSchCategory">
+                    <option value="All">All Categories</option>
+                    <option value="General">General</option>
+                    <option value="OBC">OBC</option>
+                    <option value="SC">SC</option>
+                    <option value="ST">ST</option>
+                    <option value="EWS">EWS</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Course Field</label>
+                  <select id="adminSchCourse">
+                    <option value="All">All Courses</option>
+                    <option value="Engineering & Technology">Engineering & Technology</option>
+                    <option value="Computer Science Engineering">Computer Science Engineering</option>
+                    <option value="Commerce & Management">Commerce & Management</option>
+                    <option value="Medicine & Healthcare">Medicine & Healthcare</option>
+                    <option value="Arts & Humanities">Arts & Humanities</option>
+                    <option value="Sciences">Sciences</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Gender Requirement</label>
+                  <select id="adminSchGender">
+                    <option value="All">All Genders</option>
+                    <option value="Female">Female Only</option>
+                    <option value="Male">Male Only</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Age Limit (Years)</label>
+                  <input type="number" id="adminSchAge" placeholder="e.g. 25 (blank for no limit)" />
+                </div>
+                <div class="form-group">
+                  <label>Application Deadline</label>
+                  <input type="date" id="adminSchDeadline" />
+                </div>
+                <div class="form-group" style="grid-column: 1 / -1;">
+                  <label>Application Portal URL</label>
+                  <input type="url" id="adminSchUrl" placeholder="https://scholarships.gov.in" />
+                </div>
+              </div>
+              <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 24px;">
+                <button type="button" id="cancelModalBtn" class="btn btn--secondary">Cancel</button>
+                <button type="submit" class="btn btn--primary">Save Scholarship Record</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <span class="footer__logo">🎓 AI Scholarship Finder</span>
+        <p class="footer__tagline">Transparent Rule-Based Eligibility &amp; Matching Engine Project.</p>
+      </div>
+      <div class="footer__copy">
+        <p>&copy; 2026 AI Scholarship Finder. Built for student academic project presentation.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Our JavaScript file (loaded at the end so the HTML is ready first) -->
+  <script src="js/script.js"></script>
+</body>
+</html>
